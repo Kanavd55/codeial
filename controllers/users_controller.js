@@ -1,8 +1,8 @@
-module.exports.profile=function(req,res){
-    res.end('<h1>User Profiler</h1>');
-}
-
 const User=require("../models/user");
+
+module.exports.profile=function(req,res){
+    return res.render('profile',{title:"Profile Page"});
+}
 
 module.exports.signIn=function(req,res){
     return res.render('user_sign_in',{title:"Sign-In"});
