@@ -1,9 +1,12 @@
 const express=require('express');
+const cookieParser=require('cookie-Parser');
 const port=8000;
 const app=express();
 
 const expressLayouts=require('express-ejs-layouts');
 app.use(expressLayouts);
+app.use(express.urlencoded());
+app.use(cookieParser());
 
 app.use('/',require('./routes'));
 
