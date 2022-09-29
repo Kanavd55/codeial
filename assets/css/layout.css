@@ -1,0 +1,12 @@
+#main {
+  height: 80vh;
+}
+
+body {
+  background-color: #1d1d2c;
+  margin: 0;
+}
+
+body h1 {
+  color: white;
+}

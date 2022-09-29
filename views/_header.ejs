@@ -1,3 +1,15 @@
 <header>
-    Page Header
+    <div id="header-block">
+        <div>
+            codeial
+        </div>
+        <div>
+            <% if(title=="Profile Page"){ %>
+                <a href="/users/sign-out">Sign Out</a>
+            <%}else{ %>
+            <a href="/users/sign-up">Sign Up</a>
+            <a href="/users/sign-in">Sign In</a>
+            <%}%>
+        </div>
+    </div>
 </header>

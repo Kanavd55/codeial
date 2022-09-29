@@ -1,0 +1,30 @@
+footer {
+  margin: 0%;
+}
+
+footer #footer-block {
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
+  background-color: #232325;
+  padding: 2.5rem;
+  border-bottom: 2px solid black;
+  margin: 0%;
+}
+
+footer #footer-block div {
+  color: white;
+  font-size: 0.8rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+footer #footer-block div a {
+  color: white;
+  margin: 5px;
+  font-size: 1rem;
+  border: 0.2px solid black;
+  border-radius: 50px;
+  padding: 18px;
+  background-color: #7a1f1f;
+  text-decoration: none;
+}
