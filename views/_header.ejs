@@ -6,6 +6,10 @@
         <div>
             <% if(title=="Profile Page"){ %>
                 <a href="/users/sign-out">Sign Out</a>
+            <%} else if(title=="Sign-Up"){%>
+                <a href="/users/sign-in">Sign In</a>
+            <%} else if(title=="user-home"){%>
+                <a href="/users/sign-out">Sign Out</a>
             <%}else{ %>
             <a href="/users/sign-up">Sign Up</a>
             <a href="/users/sign-in">Sign In</a>

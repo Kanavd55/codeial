@@ -20,6 +20,7 @@ app.use(sassMiddleware({
 
 app.use(expressLayouts);
 app.use(express.urlencoded());
+app.use(express.static("./assets"));
 app.use(cookieParser());
 
 

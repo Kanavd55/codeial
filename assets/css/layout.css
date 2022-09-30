@@ -5,8 +5,13 @@
 body {
   background-color: #1d1d2c;
   margin: 0;
+  color: whitesmoke;
 }
 
 body h1 {
+  color: white;
+}
+
+body p {
   color: white;
 }

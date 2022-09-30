@@ -46,7 +46,7 @@ module.exports.create=function(req,res){
 }
 
 module.exports.createSession=function(req,res){
-    return res.redirect('/');
+    return res.render('user-home',{title:"user-home"});
 }
 
 module.exports.signOut=function(req,res){
