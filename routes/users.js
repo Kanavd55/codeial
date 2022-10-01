@@ -19,7 +19,6 @@ router.post('/create-session',passport.authenticate(
     {failureRedirect:'/users/sign-in'},
 ),userController.createSession);
 
-router.get('/create-session',userController.createSession);
 
 
 module.exports=router;

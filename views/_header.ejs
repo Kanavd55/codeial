@@ -4,13 +4,10 @@
             codeial
         </div>
         <div>
-            <% if(title=="Profile Page"){ %>
+            <%if(locals.user){%>
+                <a href="/users/profile"><%=locals.user.name%></a>
                 <a href="/users/sign-out">Sign Out</a>
-            <%} else if(title=="Sign-Up"){%>
-                <a href="/users/sign-in">Sign In</a>
-            <%} else if(title=="user-home"){%>
-                <a href="/users/sign-out">Sign Out</a>
-            <%}else{ %>
+            <%} else{ %>
             <a href="/users/sign-up">Sign Up</a>
             <a href="/users/sign-in">Sign In</a>
             <%}%>
