@@ -1,11 +1,20 @@
+const { populate } = require('../models/post');
 const Post=require('../models/post');
 
 module.exports.home=function(req,res){
-    Post.find({}).populate('user').exec(function(err,posts){
-        if(err){
-            console.log("error");
+    Post.find({})
+    .populate('user')
+    .populate({
+        path:'comments',
+        populate:{
+            path:'user'
         }
-        return res.render('home',{title:"Home",posts:posts});
+    })
+    .exec(function(err,posts){
+        return res.render('home',{
+            title:'Codeial | Home',
+            posts:posts
+        });
     });
     
 }
