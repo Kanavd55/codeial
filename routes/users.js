@@ -14,6 +14,10 @@ router.get('/sign-out',userController.signOut);
 
 router.post('/create',userController.create);
 
+router.get('/profile/:id',passport.checkAuthentication,userController.profile);
+
+router.post('/update/:id',passport.checkAuthentication,userController.update);
+
 router.post('/create-session',passport.authenticate(
     'local',
     {failureRedirect:'/users/sign-in'},
