@@ -1,5 +1,8 @@
+<link rel="stylesheet" type="text/css" href="/css/home.css">
 <body>
-    <h1>Codeial / <%=title %></h1>
+    <div id="flex-box-container">
+    <div id="posts">
+    <h1> <%=title %></h1>
     <section id="feed-posts">
         <h4>Posts</h4>
         <% if(locals.user){ %>
@@ -16,6 +19,8 @@
             <%}%>
         </ul>
     </div>
+</div>
+<div id="users">
     <section id="user-friends">
         <h4>Friends</h4>
         <% for(u of all_users){ %>
@@ -24,4 +29,6 @@
             </p>
             <%}%>
     </section>
+</div>
+</div>
 </body>

@@ -1,0 +1,13 @@
+#flex-box-container{
+    display: flex;
+
+    #posts{
+        width: 70%;
+        padding: 10px;
+    }
+
+    #users{
+        width: 30%;
+        padding: 10px;
+    }
+}
