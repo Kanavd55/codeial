@@ -19,6 +19,7 @@ module.exports.create=function(req,res){
                 }
                 post.comments.push(comment);
                 post.save();
+                req.flash('success','Comment Created!');
                 res.redirect('/');
             });
         }
@@ -39,6 +40,7 @@ module.exports.destroy=function(req,res){
                     console.log('error');
                     return;
                 }
+                req.flash('success','Comment Deleted!');
                 return res.redirect('back');
             })
         }else{

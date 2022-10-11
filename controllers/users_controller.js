@@ -40,6 +40,7 @@ module.exports.create=function(req,res){
                     console.log("error in finding user");
                     return;
                 }
+                req.flash('success','New User Signed Up!');
                 return res.redirect('/users/sign-in');
 
             });
@@ -52,6 +53,7 @@ module.exports.create=function(req,res){
 }
 
 module.exports.createSession=function(req,res){
+    req.flash('success','Logged in Successfully');
     return res.redirect('/');
 }
 
@@ -61,6 +63,7 @@ module.exports.signOut=function(req,res){
             console.log("error");
         }
     });
+    req.flash('success','Logged out Successfully');
     return res.redirect('/');
 }
 

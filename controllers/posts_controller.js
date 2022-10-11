@@ -10,6 +10,7 @@ module.exports.create=function(req,res){
             console.log('error in creating a post');
             return
         }
+        req.flash('success','Post Created!');
         return res.redirect('back');
     })
 }
@@ -20,6 +21,7 @@ module.exports.destroy=async function(req,res){
     if(post.user==req.user.id){
         post.remove();
         await Comment.deleteMany({post:req.params.id});
+            req.flash('success','Post and associated comments deleted');
             return res.redirect('back');
         }
         else{
