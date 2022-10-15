@@ -7,7 +7,7 @@
     </small>
     <br>
     <% if(locals.user && locals.user.id==post.user.id){ %>
-        <a href="/posts/destroy/<%=post.id%>">Delete</a>
+        <a class="delete-post-button" href="/posts/destroy/<%=post.id%>">Delete</a>
     <%}%>
     <div class="post-comments">
         <% if(locals.user){%>

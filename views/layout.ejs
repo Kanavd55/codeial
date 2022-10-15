@@ -9,6 +9,8 @@
         <link rel="stylesheet" type="text/css" href="/css/footer.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        
     </head>
     <body>
     <%- include('_header');%>
@@ -23,7 +25,7 @@
                 text:'<%=flash.success%>',
                 type:'success',
                 layout:'topRight',
-                timeouut:1500
+                timeouut:150
             }).show();
             <% } else if(flash.error && flash.error.length>0){%>
             new Noty({
@@ -31,7 +33,7 @@
                 text:'<%=flash.error%>',
                 type:'error',
                 layout:'topRight',
-                timeouut:1500
+                timeouut:150
             }).show();
             <%}%>
         </script>
