@@ -1,7 +1,6 @@
 <li>
                
-    <%= post.content %>
-    <br>
+    <h2><%= post.content %></h2>
     <small>
         <%= post.user.name %>
     </small>
@@ -17,7 +16,7 @@
             <input type="submit" value="Add Comment">
         </form>
         <%}%>
-        <div class="poast-comments-list">
+        <div id="post-comments-list" class="post-comments-list">
             <ul id="post-comments-<%=post._id%>">
                 <% for(comment of post.comments){ %>
                     <p>
@@ -35,3 +34,4 @@
         </div>
     </div>
 </li>
+<script src="/js/home_comments.js"></script>
