@@ -42,15 +42,21 @@
             ${post.user.name}
         </small>
         <br>
+        <small>
+            <a class="toggle-like-button" id="toggle-like-button" data-likes="${post.likes.length}" 
+                href="/likes/toggle/?id=${post._id}&type=Post">${post.likes.length} Likes
+            </a>
+    </small>
+    <br>
             <a class="delete-post-button" href="/posts/destroy/${post._id}">Delete</a>
-        <div class="post-comments">
+        <div id="post-comments-form" class="post-comments">
             <form action="/comments/create" method="POST">
                 <input type="text" name="content" placeholder="Type Your Comment..">
                 <input type="hidden" name="post" value="${post._id}">
                 <input type="submit" value="Add Comment">
             </form>
-            <div class="post-comments-list">
-                <ul id="post-comments-${post._id}">
+            <div id="post-comments-${post._id}" class="post-comments-list">
+                <ul>
                 </ul>
             </div>
         </div>

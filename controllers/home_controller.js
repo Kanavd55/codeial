@@ -1,6 +1,7 @@
 const { populate } = require('../models/post');
 const Post=require('../models/post');
 const User=require('../models/user');
+const Likes=require('../models/like');
 
 module.exports.home=async function(req,res){
     try{
@@ -10,9 +11,15 @@ module.exports.home=async function(req,res){
     .populate({
         path:'comments',
         populate:{
-            path:'user'
+            path:'likes',
+            model:'Likes'
+        },
+        populate:{
+            path:'user',
+            model:'User'
         }
-    });
+    })
+    .populate('likes');
     let user=await User.find({});
         return res.render('home',{
             title:'Codeial | Home',

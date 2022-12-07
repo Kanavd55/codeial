@@ -5,33 +5,55 @@
         <%= post.user.name %>
     </small>
     <br>
+    <small>
+        <% if(locals.user){ %> 
+            <a class="toggle-like-button" id="toggle-like-button" data-likes="<%=post.likes.length%>" 
+                href="/likes/toggle/?id=<%=post._id%>&type=Post"><%=post.likes.length%> Likes
+            </a>
+        <%}else{%>
+            <%=post.likes.length%> Likes
+            <%}%>
+    </small>
+    <br>
+    <br>
     <% if(locals.user && locals.user.id==post.user.id){ %>
         <a class="delete-post-button" href="/posts/destroy/<%=post.id%>">Delete</a>
     <%}%>
     <div class="post-comments">
         <% if(locals.user){%>
-        <form action="/comments/create" method="POST">
+        <form action="/comments/create" method="POST" id="post-comments-form">
             <input type="text" name="content" placeholder="Type Your Comment..">
             <input type="hidden" name="post" value="<%=post._id%>">
             <input type="submit" value="Add Comment">
         </form>
         <%}%>
-        <div id="post-comments-list" class="post-comments-list">
-            <ul id="post-comments-<%=post._id%>">
+        <div id="post-comments-<%=post.id%>" class="post-comments-list">
+            <ul>
                 <% for(comment of post.comments){ %>
+                    <li>
                     <p>
                         <%=comment.content %>
                         <br>
                         <small>
                             <%= comment.user.name %>
                         </small><br>
+                        <small>
+                            <% if(locals.user){ %> 
+                                <a class="toggle-like-button" data-likes="<%=comment.likes.length%>"  id="toggle-like-button"
+                                    href="/likes/toggle/?id=<%=comment._id%>&type=Comment"><%=comment.likes.length%> Likes
+                                </a>
+                            <%}else{%>
+                                <%=comment.likes.length%> Likes
+                                <%}%>
+                        </small>
+                        &ensp;
                         <% if(locals.user && locals.user.id==comment.user.id){ %>
                             <a href="/comments/destroy/<%=comment.id%>">Delete</a>
                         <%}%>
                     </p>
+                </li>
                 <%}%>
             </ul>
         </div>
     </div>
 </li>
-<script src="/js/home_comments.js"></script>
