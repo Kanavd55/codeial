@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="/css/home.css">
+<link rel="stylesheet" type="text/css" href="/css/chat_box.css">
 <body>
     <div id="flex-box-container">
     <div id="posts">
@@ -29,9 +30,21 @@
             <%}%>
     </section>
 </div>
+<%- include('_chat_box') -%>
 </div>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"
+  integrity="sha512-iWPnCISAd/J+ZacwV2mbNLCaPGRrRo5OS81lKTVPtRg1wGTC20Cfmp5Us5RcbLv42QLdbAWl0MI57yox5VecQg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script src="/js/chat_engine.js"></script>
+<% if (locals.user){ %>
+<script>
+    new ChatEngine('user-chat-box', '<%= locals.user.email %>')
+</script>
+<% } %>
+
 </body>
-<script src="/js/home_posts.js"></script>
-<script src="/js/home_comments.js"></script>
-<script src="/js/toggle_likes.js"></script>
+
 

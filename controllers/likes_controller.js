@@ -9,7 +9,7 @@ module.exports.toggleLike=async function(req,res){
         let deleted=false;
         if(req.query.type=='Post'){
             likeable=await Post.findById(req.query.id).populate('likes');
-            console.log(likeable.id);
+            //console.log(likeable.id);
         }else{
             likeable=await Comment.findById(req.query.id).populate('likes');
         }

@@ -1,13 +1,14 @@
 {
     // method to submit the form data for new post using AJAX
     let createComment=function(){
-        let newCommentForm=$('#post-comments-form');
+        let newCommentForm=$('.post-comments-form');
         newCommentForm.submit(function(e){
             e.preventDefault();
+            let comment=$(this);
             $.ajax({
                 type:'post',
                 url:'/comments/create',
-                data:newCommentForm.serialize(),
+                data:comment.serialize(),
                 success:function(data){
                     console.log(data);
                     let newComment=newCommentDom(data.data.comment);
