@@ -3,6 +3,7 @@ const cookieParser=require('cookie-Parser');
 const port=8000;
 const app=express();
 const session=require('express-session');
+const logger=require('morgan');
 const passport=require('passport');
 const passportLocal=require('./config/passport-local-strategy');
 const passportJWT=require('./config/passport-jwt-strategy');
@@ -20,19 +21,23 @@ console.log('chat Server is listening on port 5000');
 const env=require('./config/environment');
 const path=require('path');
 
-app.use(sassMiddleware({
-    src:path.join(__dirname,env.asset_path,'scss'),
-    dest:path.join(__dirname,env.asset_path,'css'),
-    debug:true,
-    outputStyle:"expanded",
-    prefix:"/css"
-}));
+if(env.name=='development'){
+    app.use(sassMiddleware({
+        src:path.join(__dirname,env.asset_path,'scss'),
+        dest:path.join(__dirname,env.asset_path,'css'),
+        debug:true,
+        outputStyle:"expanded",
+        prefix:"/css"
+    }));
+}
+
 
 
 app.use(expressLayouts);
 app.use(express.urlencoded());
 app.use(express.static(env.asset_path));
 app.use('/uploads',express.static(__dirname +'/uploads'));
+app.use(logger(env.morgan.mode,env.morgan.options));
 app.use(cookieParser());
 
 
